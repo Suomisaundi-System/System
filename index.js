@@ -77,3 +77,6 @@ if (typeof document !== "undefined") {
   document.body.append(gateway);
   window.setTimeout(() => window.location.replace(suomisaundiMainUrl), 10000);
 }
+
+// Shared runtime modules are independently importable by other same-origin systems.
+export * from "./runtime.js";
