@@ -57,3 +57,23 @@ home.href="https://suomisaundi-system.github.io/";
 home.textContent="Return to Suomisaundi System";
 main.append(heading,detail,home);
 document.body.append(main);
+
+// suomisaundi-subsidiary-gateway-v1
+// Public-facing navigation policy; NOT an access-control or intrusion detector.
+const suomisaundiMainUrl = "https://suomisaundi-system.github.io/";
+if (typeof document !== "undefined") {
+  const gateway = document.createElement("aside");
+  gateway.setAttribute("role", "status");
+  gateway.style.cssText = "position:fixed;inset:0;z-index:2147483647;display:grid;place-content:center;gap:1rem;padding:2rem;text-align:center;background:#101b1f;color:#f4f9f7;font:16px system-ui,sans-serif";
+  const notice = document.createElement("h1");
+  notice.textContent = "Nothing to see here";
+  const details = document.createElement("p");
+  details.textContent = "This is a Suomisaundi System subsidiary. Please enter through the main website. Redirecting in 10 seconds.";
+  const link = document.createElement("a");
+  link.href = suomisaundiMainUrl;
+  link.style.color = "#90e4cb";
+  link.textContent = "Go to Suomisaundi System now";
+  gateway.append(notice, details, link);
+  document.body.append(gateway);
+  window.setTimeout(() => window.location.replace(suomisaundiMainUrl), 10000);
+}
